@@ -1,0 +1,10 @@
+{
+    "type": "sortZoom",
+    "arg": {
+        "zoomRatio": 0,
+        "targetItem": {
+            "center": "none",
+            "range": "views"
+        }
+    }
+}
