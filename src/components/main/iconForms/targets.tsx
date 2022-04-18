@@ -43,7 +43,7 @@ const TargetForm = () => {
     }
   ];
   return (
-    <IconsForm func={handleCenter} icons={icons} ></IconsForm>
+    <IconsForm func={handleCenter} icons={icons} />
   );
 }
 

@@ -8,7 +8,7 @@ import { NumberBox } from '../../../parts/numberBox';
 import { StdButton } from '../../../parts/button';
 
 import { ArgType, SendHostScript } from '../../../fileSystem/connectHostScript';
-import { writeDebugData } from '../../../fileSystem/init';
+// import { writeDebugData } from '../../../fileSystem/init';
 
 const ZoomForm = styled.div`
   display: flex;
@@ -28,6 +28,14 @@ const ZoomOutIcon = styled(FiZoomOut)`
   ${stdSvgIconButton}
 `;
 
+type ArgJustZoom = {
+  type: 'justZoom',
+  arg: {
+    range: 'global'|'views'|'documemts',
+    direction: 'in' | 'out'
+  }
+}
+
 const ZoomFormCompo = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(state => state);
@@ -37,19 +45,39 @@ const ZoomFormCompo = () => {
   }, [zoomRatio]);
   const excuteZoom:(arg:ArgType['arg'])=>Promise<void> = async arg => {
     const connect = new SendHostScript();
-    await writeDebugData({ type: 'sortZoom', arg });
+    // await writeDebugData({ type: 'sortZoom', arg });
+    arg.zoomRatio = arg.zoomRatio / 100;
+    const r = await connect.callHostScript({ type: 'sortZoom', arg });
+    console.log(r);
+  };
+
+  const justZoom:(range:ArgJustZoom['arg']['range'], direction:ArgJustZoom['arg']['direction'])=>Promise<void> = async (range, direction) => {
+    const arg:ArgJustZoom = {
+      type: 'justZoom',
+      arg: {
+        range,
+        direction
+      }
+    }
+    const connect = new SendHostScript();
+    const r = await connect.callHostScript(arg);
+    console.log(r);
   }
   return (
     <ZoomForm>
-      <ZoomIcon/>
-      <ZoomOutIcon/>
-      <StdButton name="done" func={() => excuteZoom({ zoomRatio: state.zoomRatio.value, targetItem: state.targetItem.value })} />
+      <ZoomIcon
+        onClick={() => justZoom(state.targetItem.value.range, 'in')}
+      />
+      <ZoomOutIcon
+        onClick={() => justZoom(state.targetItem.value.range, 'out')}
+      />
+      <StdButton name='done' func={() => excuteZoom({ zoomRatio: state.zoomRatio.value, targetItem: state.targetItem.value })} />
       <NumberBox
-        min={-100}
-        max={100}
+        min={0.1}
+        max={1000}
         value={zoomRatio}
         func={handleZoom}
-        step={1}
+        step={0.1}
         name='zoomRatio'
       />
     </ZoomForm>

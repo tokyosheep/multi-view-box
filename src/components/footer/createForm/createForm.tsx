@@ -1,8 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SendHostScript } from '../../../fileSystem/connectHostScript';
 import { stdSvgIconButton } from '../../../styles/mixin';
 
 import { IoImagesOutline, IoDocumentsOutline } from 'react-icons/io5';
+
+type ArgCreate = {
+  type: 'createViwes',
+  arg: {
+    targetItem:'artBoard'|'item'
+  }
+}
 
 const CreateFormWrapper = styled.div`
   display: flex;
@@ -21,10 +29,21 @@ const BoardsIcon = styled(IoDocumentsOutline)`
 `;
 
 const CreateForm = () => {
+  const createArtBoard = async (targetItem:'artBoard'|'item') => {
+    const connect = new SendHostScript();
+    const arg:ArgCreate = {
+      type: 'createViwes',
+      arg: {
+        targetItem
+      }
+    }
+    const r = await connect.callHostScript(arg);
+    console.log(r);
+  }
   return (
     <CreateFormWrapper>
-      <ItemsIcon />
-      <BoardsIcon />
+      <ItemsIcon onClick={() => createArtBoard('item')}/>
+      <BoardsIcon onClick={() => createArtBoard('artBoard')} />
     </CreateFormWrapper>
   );
 };

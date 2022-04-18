@@ -1,10 +1,1 @@
-{
-    "type": "sortZoom",
-    "arg": {
-        "zoomRatio": 0,
-        "targetItem": {
-            "center": "none",
-            "range": "views"
-        }
-    }
-}
+{"type":"sortZoom","arg":{"zoomRatio":0,"targetItem":{"center":"none","range":"views"}}}

@@ -1,21 +1,133 @@
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global $, Folder*/
+/*
+#include "./parts/common.jsx";
+#include "./parts/create.jsx";
+#include "./parts/justZoom.jsx";
+*/
 
-var obj = {
-    "type": "sortZoom",
-    "arg": {
-        "zoomRatio": 0,
-        "targetItem": {
-            "center": "none",
-            "range": "views"
-        }
-    }
+
+// var obj = {
+//     "type": "sortZoom",
+//     "arg": {
+//         "zoomRatio": 30 / 100,
+//         "targetItem": {
+//             "center": "artBoard",/* 'item'|'artBoard'|'none' */
+//             "range": "documents" /* 'global'|'views'|'documemts' */
+//         }
+//     }
+// }
+
+// 
+//var obj2 = {
+//  "type": "createViwes",
+//  "arg": {
+//    "targetItem":"artBoard"/*"artBoard"|"Item*/
+//  }
+//}
+
+// var obj3 = {
+//   "type": "justZoom",
+//   "arg": {
+//     "range": "views", /* 'global'|'views'|'documemts' */
+//     "direction": "out" /*in out*/
+//   }
+// }
+
+hostScript(obj2);
+function hostScript(obj){
+  switch(obj.type){
+    case "sortZoom":
+      sortZoom(obj.arg);
+      break;
+
+    case "createViwes":
+      setViews(obj.arg);
+      break;
+
+    case "justZoom":
+      if(obj.arg.range !== "views"){
+        justZoomDocuments(obj.arg);
+      }else{
+        justZoomViews(obj.arg);
+      }
+      break;
+  }
+
+  return true;
 }
 
-hostScript();
-function hostScript(){
-var scale = 1.77;
-  // app.activeDocument.activeView.zoom = 1*scale;
-  $.writeln(app.redraw());
-  $.writeln(app.activeDocument.activeView.zoom);
+function sortZoom(arg){
+  switch(arg.targetItem.range){
+    case "views":
+      zoomViews(arg);
+      break;
+
+    case "global":
+      zoomDocuments(arg,true);
+      break;
+
+    case "documents":
+      zoomDocuments(arg,false);
+      break;
+  }
+}
+
+function zoomViews(arg){
+  var scaleRatio = getScale();
+  for(var l=0;l<app.activeDocument.views.length;l++){
+    setView(app.activeDocument.views[l],arg,scaleRatio);
+  }
+}
+
+function zoomDocuments(arg,isGlobal){
+  for(var i=0;i<app.documents.length;i++){
+    app.activeDocument = app.documents[i];
+    try{
+      if(isGlobal){
+        zoomViews(arg);
+      }else{
+        setView(app.activeDocument.activeView,arg,getScale());
+      }
+    }catch(e){
+      alert(e);
+      continue;
+    }
+  }
+}
+
+function setView(view,arg,scaleRatio){
+  var center;
+  if(arg.targetItem.center !== "none"){
+    center = arg.targetItem.center === "item" ? getCenterFromItem(app.activeDocument.selection[0]) : getCenterFromArtBoard(getActiveArtBoard());
+    if(center === null)return;
+    view.centerPoint = [center.x, center.y];
+  }else{
+    center = view.centerPoint;//noneの場合は事前にzoomCenterpointを取得して後に戻す。
+  }
+  view.zoom = scaleRatio * arg.zoomRatio; 
+  if(arg.targetItem.center === "none") view.centerPoint = center;
+}
+
+function getBoardsRect(){
+  var rects = [];
+  for(var l =0;l<app.activeDocument.artboards.length;l++){
+    rects[l] = getCenterFromArtBoard(app.activeDocument.artboards[l]);
+  }
+  return rects;
+}
+
+function getItemsReact(){
+  var rects = [];
+  for(var l=0;l<app.activeDocument.selection.length;l++){
+    rects[l] = getCenterFromItem(app.activeDocument.selection[l]);
+  }
+  return rects;
+}
+
+function setViews(arg){ 
+  var targetItems = arg.targetItem === "artBoard" ?
+    getBoardsRect()
+  : 
+    getItemsReact()
+  ;
+  createViews(targetItems);
 }

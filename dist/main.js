@@ -2685,30 +2685,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var _styles_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../styles/mixin */ "./src/styles/mixin.ts");
-/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.esm.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../fileSystem/connectHostScript */ "./src/fileSystem/connectHostScript.ts");
+/* harmony import */ var _styles_mixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../styles/mixin */ "./src/styles/mixin.ts");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.esm.js");
 
 
 
 
-var CreateFormWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+
+
+
+var CreateFormWrapper = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
   displayName: "createForm__CreateFormWrapper",
   componentId: "sc-lnlbvd-0"
 })(["display:flex;justify-content:start;border-radius:5px;box-sizing:border-box;gap:5px;"]);
-var ItemsIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoImagesOutline).withConfig({
+var ItemsIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_5__["default"])(react_icons_io5__WEBPACK_IMPORTED_MODULE_6__.IoImagesOutline).withConfig({
   displayName: "createForm__ItemsIcon",
   componentId: "sc-lnlbvd-1"
-})(["", ";"], _styles_mixin__WEBPACK_IMPORTED_MODULE_1__.stdSvgIconButton);
-var BoardsIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoDocumentsOutline).withConfig({
+})(["", ";"], _styles_mixin__WEBPACK_IMPORTED_MODULE_4__.stdSvgIconButton);
+var BoardsIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_5__["default"])(react_icons_io5__WEBPACK_IMPORTED_MODULE_6__.IoDocumentsOutline).withConfig({
   displayName: "createForm__BoardsIcon",
   componentId: "sc-lnlbvd-2"
-})(["", ";"], _styles_mixin__WEBPACK_IMPORTED_MODULE_1__.stdSvgIconButton);
+})(["", ";"], _styles_mixin__WEBPACK_IMPORTED_MODULE_4__.stdSvgIconButton);
 
 var CreateForm = function CreateForm() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CreateFormWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ItemsIcon, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(BoardsIcon, null));
+  var createArtBoard = /*#__PURE__*/function () {
+    var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(targetItem) {
+      var connect, arg, r;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              connect = new _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_3__.SendHostScript();
+              arg = {
+                type: 'createViwes',
+                arg: {
+                  targetItem: targetItem
+                }
+              };
+              _context.next = 4;
+              return connect.callHostScript(arg);
+
+            case 4:
+              r = _context.sent;
+              console.log(r);
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function createArtBoard(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(CreateFormWrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ItemsIcon, {
+    onClick: function onClick() {
+      return createArtBoard('item');
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(BoardsIcon, {
+    onClick: function onClick() {
+      return createArtBoard('artBoard');
+    }
+  }));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateForm);
@@ -2934,15 +2984,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
 /* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/app/hooks */ "./src/redux/app/hooks.ts");
 /* harmony import */ var _redux_features_zoomRatio_zoomRatioSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/features/zoomRatio/zoomRatioSlice */ "./src/redux/features/zoomRatio/zoomRatioSlice.ts");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
 /* harmony import */ var _styles_mixin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../styles/mixin */ "./src/styles/mixin.ts");
 /* harmony import */ var _parts_numberBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../parts/numberBox */ "./src/parts/numberBox.tsx");
 /* harmony import */ var _parts_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../parts/button */ "./src/parts/button.tsx");
 /* harmony import */ var _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../fileSystem/connectHostScript */ "./src/fileSystem/connectHostScript.ts");
-/* harmony import */ var _fileSystem_init__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../fileSystem/init */ "./src/fileSystem/init.js");
 
 
 
@@ -2953,17 +3002,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import { writeDebugData } from '../../../fileSystem/init';
 
-
-var ZoomForm = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div.withConfig({
+var ZoomForm = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
   displayName: "zoomForm__ZoomForm",
   componentId: "sc-19lnq5e-0"
 })(["display:flex;justify-content:space-between;padding:5px;border:1px solid #fff;border-radius:5px;box-sizing:border-box;gap:5px;"]);
-var ZoomIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_11__.FiZoomIn).withConfig({
+var ZoomIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiZoomIn).withConfig({
   displayName: "zoomForm__ZoomIcon",
   componentId: "sc-19lnq5e-1"
 })(["", ""], _styles_mixin__WEBPACK_IMPORTED_MODULE_5__.stdSvgIconButton);
-var ZoomOutIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_11__.FiZoomOut).withConfig({
+var ZoomOutIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiZoomOut).withConfig({
   displayName: "zoomForm__ZoomOutIcon",
   componentId: "sc-19lnq5e-2"
 })(["", ""], _styles_mixin__WEBPACK_IMPORTED_MODULE_5__.stdSvgIconButton);
@@ -2980,19 +3029,25 @@ var ZoomFormCompo = function ZoomFormCompo() {
 
   var excuteZoom = /*#__PURE__*/function () {
     var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(arg) {
-      var connect;
+      var connect, r;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              connect = new _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__.SendHostScript();
-              _context.next = 3;
-              return (0,_fileSystem_init__WEBPACK_IMPORTED_MODULE_9__.writeDebugData)({
+              connect = new _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__.SendHostScript(); // await writeDebugData({ type: 'sortZoom', arg });
+
+              arg.zoomRatio = arg.zoomRatio / 100;
+              _context.next = 4;
+              return connect.callHostScript({
                 type: 'sortZoom',
                 arg: arg
               });
 
-            case 3:
+            case 4:
+              r = _context.sent;
+              console.log(r);
+
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -3005,7 +3060,50 @@ var ZoomFormCompo = function ZoomFormCompo() {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ZoomForm, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ZoomIcon, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ZoomOutIcon, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_parts_button__WEBPACK_IMPORTED_MODULE_7__.StdButton, {
+  var justZoom = /*#__PURE__*/function () {
+    var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(range, direction) {
+      var arg, connect, r;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              arg = {
+                type: 'justZoom',
+                arg: {
+                  range: range,
+                  direction: direction
+                }
+              };
+              connect = new _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__.SendHostScript();
+              _context2.next = 4;
+              return connect.callHostScript(arg);
+
+            case 4:
+              r = _context2.sent;
+              console.log(r);
+
+            case 6:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function justZoom(_x2, _x3) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ZoomForm, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ZoomIcon, {
+    onClick: function onClick() {
+      return justZoom(state.targetItem.value.range, 'in');
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ZoomOutIcon, {
+    onClick: function onClick() {
+      return justZoom(state.targetItem.value.range, 'out');
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_parts_button__WEBPACK_IMPORTED_MODULE_7__.StdButton, {
     name: "done",
     func: function func() {
       return excuteZoom({
@@ -3014,11 +3112,11 @@ var ZoomFormCompo = function ZoomFormCompo() {
       });
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_parts_numberBox__WEBPACK_IMPORTED_MODULE_6__.NumberBox, {
-    min: -100,
-    max: 100,
+    min: 0.1,
+    max: 1000,
     value: zoomRatio,
     func: handleZoom,
-    step: 1,
+    step: 0.1,
     name: "zoomRatio"
   }));
 };
@@ -53373,6 +53471,7 @@ __webpack_require__.r(__webpack_exports__);
 const csInterface = new CSInterface();
 const extensionId = csInterface.getExtensionID();
 const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
+const jsxParts = `${extensionRoot}/parts`;
 
 const debug = true;
 
@@ -53396,10 +53495,17 @@ const preventDragEvent = () =>{
     }
 }
 
-const init = () => {
+const loadJsx = async (jsxFolder) =>{
+    const parts = await fs__WEBPACK_IMPORTED_MODULE_0___default().promises.readdir(jsxFolder).catch(e=>console.log(e));
+    const jsxes = parts.filter(f => path__WEBPACK_IMPORTED_MODULE_1___default().extname(f) === ".jsx");
+    jsxes.forEach(jsx =>  csInterface.evalScript(`$.evalFile("${jsxFolder}/${jsx}")`));
+}
+
+const init = async () => {
     preventDragEvent();
     reload();
     csInterface.evalScript(`$.evalFile("${extensionRoot}json2.js")`);//json2読み込み
+    await loadJsx(jsxParts);
 }
 
 /***/ }),
