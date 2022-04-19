@@ -2,15 +2,15 @@
 #include "./parts/common.jsx";
 #include "./parts/create.jsx";
 #include "./parts/justZoom.jsx";
-*/
+*?
 
 
 // var obj = {
 //     "type": "sortZoom",
 //     "arg": {
-//         "zoomRatio": 30 / 100,
+//         "zoomRatio": 70 / 100,
 //         "targetItem": {
-//             "center": "artBoard",/* 'item'|'artBoard'|'none' */
+//             "center": "none",/* 'item'|'artBoard'|'none' */
 //             "range": "documents" /* 'global'|'views'|'documemts' */
 //         }
 //     }
@@ -32,7 +32,7 @@
 //   }
 // }
 
-hostScript(obj2);
+// hostScript(obj);
 function hostScript(obj){
   switch(obj.type){
     case "sortZoom":
@@ -72,9 +72,8 @@ function sortZoom(arg){
 }
 
 function zoomViews(arg){
-  var scaleRatio = getScale();
   for(var l=0;l<app.activeDocument.views.length;l++){
-    setView(app.activeDocument.views[l],arg,scaleRatio);
+    setView(app.activeDocument.views[l],arg);
   }
 }
 
@@ -85,7 +84,7 @@ function zoomDocuments(arg,isGlobal){
       if(isGlobal){
         zoomViews(arg);
       }else{
-        setView(app.activeDocument.activeView,arg,getScale());
+        setView(app.activeDocument.activeView,arg/*,getScale()*/);
       }
     }catch(e){
       alert(e);
@@ -94,7 +93,7 @@ function zoomDocuments(arg,isGlobal){
   }
 }
 
-function setView(view,arg,scaleRatio){
+function setView(view,arg){
   var center;
   if(arg.targetItem.center !== "none"){
     center = arg.targetItem.center === "item" ? getCenterFromItem(app.activeDocument.selection[0]) : getCenterFromArtBoard(getActiveArtBoard());
@@ -103,8 +102,10 @@ function setView(view,arg,scaleRatio){
   }else{
     center = view.centerPoint;//noneの場合は事前にzoomCenterpointを取得して後に戻す。
   }
+  var scaleRatio = getScale();
   view.zoom = scaleRatio * arg.zoomRatio; 
   if(arg.targetItem.center === "none") view.centerPoint = center;
+  return scaleRatio;
 }
 
 function getBoardsRect(){

@@ -21,6 +21,7 @@ const NumberWrapper = styled.label<{background:string}>`
         box-shadow: 3px 3px 3px inset rgba(0,0,0,0.2);
         border-radius: 3px;
         height: 40px;
+        width: 60px;
         color: #fff;
     }
 `;

@@ -3,7 +3,7 @@ import { RootState } from '../../app/store';
 
 export type CenterType = 'item'|'artBoard'|'none';
 
-export type TargetRange = 'global'|'views'|'documemts';
+export type TargetRange = 'global'|'views'|'documents';
 
 export interface TargetType {
   value: {

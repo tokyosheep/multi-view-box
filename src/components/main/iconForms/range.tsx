@@ -40,8 +40,8 @@ const RangeFormBox = () => {
     },
     {
       IconComponent: DocsIcon,
-      checked: rangePoint === 'documemts',
-      name: 'documemts'
+      checked: rangePoint === 'documents',
+      name: 'documents'
     }
   ];
   return (

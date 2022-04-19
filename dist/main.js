@@ -2852,8 +2852,8 @@ var RangeFormBox = function RangeFormBox() {
     name: 'global'
   }, {
     IconComponent: DocsIcon,
-    checked: rangePoint === 'documemts',
-    name: 'documemts'
+    checked: rangePoint === 'documents',
+    name: 'documents'
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_parts_iconsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
     func: handleRangePoint,
@@ -2984,14 +2984,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
 /* harmony import */ var _redux_app_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/app/hooks */ "./src/redux/app/hooks.ts");
 /* harmony import */ var _redux_features_zoomRatio_zoomRatioSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/features/zoomRatio/zoomRatioSlice */ "./src/redux/features/zoomRatio/zoomRatioSlice.ts");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
 /* harmony import */ var _styles_mixin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../styles/mixin */ "./src/styles/mixin.ts");
 /* harmony import */ var _parts_numberBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../parts/numberBox */ "./src/parts/numberBox.tsx");
 /* harmony import */ var _parts_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../parts/button */ "./src/parts/button.tsx");
 /* harmony import */ var _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../fileSystem/connectHostScript */ "./src/fileSystem/connectHostScript.ts");
+/* harmony import */ var _fileSystem_init__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../fileSystem/init */ "./src/fileSystem/init.js");
 
 
 
@@ -3002,17 +3003,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import { writeDebugData } from '../../../fileSystem/init';
 
-var ZoomForm = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
+
+var ZoomForm = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div.withConfig({
   displayName: "zoomForm__ZoomForm",
   componentId: "sc-19lnq5e-0"
-})(["display:flex;justify-content:space-between;padding:5px;border:1px solid #fff;border-radius:5px;box-sizing:border-box;gap:5px;"]);
-var ZoomIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiZoomIn).withConfig({
+})(["display:flex;justify-content:space-between;padding:5px 10px;border:1px solid #fff;border-radius:5px;box-sizing:border-box;gap:5px;"]);
+var ZoomIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_11__.FiZoomIn).withConfig({
   displayName: "zoomForm__ZoomIcon",
   componentId: "sc-19lnq5e-1"
 })(["", ""], _styles_mixin__WEBPACK_IMPORTED_MODULE_5__.stdSvgIconButton);
-var ZoomOutIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiZoomOut).withConfig({
+var ZoomOutIcon = (0,styled_components__WEBPACK_IMPORTED_MODULE_10__["default"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_11__.FiZoomOut).withConfig({
   displayName: "zoomForm__ZoomOutIcon",
   componentId: "sc-19lnq5e-2"
 })(["", ""], _styles_mixin__WEBPACK_IMPORTED_MODULE_5__.stdSvgIconButton);
@@ -3034,20 +3035,26 @@ var ZoomFormCompo = function ZoomFormCompo() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              connect = new _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__.SendHostScript(); // await writeDebugData({ type: 'sortZoom', arg });
+              connect = new _fileSystem_connectHostScript__WEBPACK_IMPORTED_MODULE_8__.SendHostScript();
+              _context.next = 3;
+              return (0,_fileSystem_init__WEBPACK_IMPORTED_MODULE_9__.writeDebugData)({
+                type: 'sortZoom',
+                arg: arg
+              });
 
+            case 3:
               arg.zoomRatio = arg.zoomRatio / 100;
-              _context.next = 4;
+              _context.next = 6;
               return connect.callHostScript({
                 type: 'sortZoom',
                 arg: arg
               });
 
-            case 4:
+            case 6:
               r = _context.sent;
               console.log(r);
 
-            case 6:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -3346,7 +3353,7 @@ __webpack_require__.r(__webpack_exports__);
 var NumberWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].label.withConfig({
   displayName: "numberBox__NumberWrapper",
   componentId: "sc-918cbr-0"
-})(["display:flex;width:90px;justify-content:start;gap:3px;& > input{border:none;background:", ";box-shadow:3px 3px 3px inset rgba(0,0,0,0.2);border-radius:3px;height:40px;color:#fff;}"], function (props) {
+})(["display:flex;width:90px;justify-content:start;gap:3px;& > input{border:none;background:", ";box-shadow:3px 3px 3px inset rgba(0,0,0,0.2);border-radius:3px;height:40px;width:60px;color:#fff;}"], function (props) {
   return props.background;
 });
 var TitleText = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span.withConfig({
