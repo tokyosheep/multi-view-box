@@ -8,7 +8,7 @@ import { NumberBox } from '../../../parts/numberBox';
 import { StdButton } from '../../../parts/button';
 
 import { ArgType, SendHostScript } from '../../../fileSystem/connectHostScript';
-import { writeDebugData } from '../../../fileSystem/init';
+// import { writeDebugData } from '../../../fileSystem/init';
 
 const ZoomForm = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ const ZoomFormCompo = () => {
   }, [zoomRatio]);
   const excuteZoom:(arg:ArgType['arg'])=>Promise<void> = async arg => {
     const connect = new SendHostScript();
-    await writeDebugData({ type: 'sortZoom', arg });
+    // await writeDebugData({ type: 'sortZoom', arg });
     arg.zoomRatio = arg.zoomRatio / 100;
     const r = await connect.callHostScript({ type: 'sortZoom', arg });
     console.log(r);
