@@ -98,14 +98,13 @@ function setView(view,arg){
   if(arg.targetItem.center !== "none"){
     center = arg.targetItem.center === "item" ? getCenterFromItem(app.activeDocument.selection[0]) : getCenterFromArtBoard(getActiveArtBoard());
     if(center === null)return;
-    view.centerPoint = [center.x, center.y];
+    // view.centerPoint = [center.x, center.y];
   }else{
     center = view.centerPoint;//noneの場合は事前にzoomCenterpointを取得して後に戻す。
   }
   var scaleRatio = getScale();
   view.zoom = scaleRatio * arg.zoomRatio; 
-  if(arg.targetItem.center === "none") view.centerPoint = center;
-  return scaleRatio;
+  view.centerPoint = center;
 }
 
 function getBoardsRect(){

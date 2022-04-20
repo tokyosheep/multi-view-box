@@ -8,7 +8,7 @@ function getCenterFromItem(item){
   if(item === undefined) return null;
   var X = item.left + (item.width/2); //右下のX座標
   var Y = item.top - (item.height/2); //右下のY座標  
-  return { x: X, y: Y };
+  return  [X, Y];
 }
 
 function getActiveArtBoard(){
@@ -28,5 +28,5 @@ function getCenterFromArtBoard(board){
   //▼アートボードの幅と高さを取得
   var boardW = X2 - X1; //アートボードの横幅
   var boardH = Y2 - Y1; //アートボードの高さ
-  return { x: X1 + boardW/2 , y: Y1 + boardH/2 };
+  return [X1 + boardW/2 ,Y1 + boardH/2];
 }
