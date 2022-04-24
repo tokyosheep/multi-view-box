@@ -4,7 +4,7 @@
 
 Illustrator Extension Multi-view-box is zoomin off, on of documents or views , even you can focus same target.
 
-it can zooming all of documents or views just click a button.
+it can zoom all of documents or views just click a button.
 features are below.
 
 ## functions
