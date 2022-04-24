@@ -2,7 +2,7 @@
 
 [Japanese explanation is here](https://kawano-shuji.com/justdiary/2022/04/20/illustrator-exte…n-multi-view-box/)
 
-Illustrator Extension Multi-view-box is zoomin off, on of documents or views , even you can focus same target.
+Illustrator Extension Multi-view-box is zoomin out, in of documents or views , even you can focus same target.
 
 it can zoom all of documents or views just click a button.
 functions are below.
