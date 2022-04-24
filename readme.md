@@ -1,6 +1,6 @@
 # Multi-view-box
 
-[Japanese explanation is here](https://kawano-shuji.com/justdiary/2022/04/20/illustrator-exte…n-multi-view-box/)
+[Japanese explanation is here](https://kawano-shuji.com/justdiary/2022/04/24/illustrator-extension-multi-view-box/)
 
 Illustrator Extension Multi-view-box is zoomin out, in of documents or views , even you can focus same target.
 
