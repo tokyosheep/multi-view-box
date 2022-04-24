@@ -6,7 +6,7 @@ export const extensionId = csInterface.getExtensionID();
 export const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
 const jsxParts = `${extensionRoot}/parts`;
 
-const debug = true;
+const debug = false;
 
 export const writeDebugData = obj =>{
     if(!debug)return;
@@ -36,7 +36,7 @@ const loadJsx = async (jsxFolder) =>{
 
 export const init = async () => {
     preventDragEvent();
-    reload();
+    // reload();
     csInterface.evalScript(`$.evalFile("${extensionRoot}json2.js")`);//json2読み込み
     await loadJsx(jsxParts);
 }

@@ -12,7 +12,7 @@ function createViews(targetItems){
       /*
         can't set center point as activeDocument.activeView.centerPoint = [x,y]; 
       */
-      activeDocument.views[activeDocument.views.length-1].centerPoint = [targetItems[i].x, targetItems[i].y];
+      activeDocument.views[activeDocument.views.length-1].centerPoint = targetItems[i];
     }catch(e){
       alert(e);
       continue;

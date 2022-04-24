@@ -1064,6 +1064,8 @@
 
 // regeneratorRuntime in the outer scope, which allows this module to be
 
+// reload();
+
 // result, either by returning a { value, done } result from the
 
 // setting context.delegate to null, and returning the ContinueSentinel.
