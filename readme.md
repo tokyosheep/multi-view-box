@@ -30,5 +30,5 @@ create views on active document. make view on artboards or selected items.
 
 ### Download
 
-download zxp file from [here](http://kawano-shuji.com/strage/multi-view-box_1.zxp)
+download zxp file from [here](https://kawano-shuji.com/strage/multi-view-box_1.zxp)
 
